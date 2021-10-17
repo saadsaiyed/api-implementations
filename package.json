@@ -1,0 +1,24 @@
+{
+    "name": "circle-medical",
+    "version": "1.0.0",
+    "description": "Assesment for Full Stack Developer",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon index"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/saadsaiyed/api-implementations.git"
+    },
+    "author": "Saad Saiyed",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/saadsaiyed/api-implementations/issues"
+    },
+    "homepage": "https://github.com/saadsaiyed/api-implementations#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "nodemon": "^2.0.13"
+    }
+}
