@@ -1,13 +1,14 @@
 const data = require("../data.json");
 const fs = require('fs')
+const sanitizeRequestBody = require('../middleware/sanitizeRequestBody')
 
 module.exports = app => {
-    app.post("/recipes", (req, res) => {
+    app.post("/recipes", sanitizeRequestBody, (req, res) => {
         let response = {};
         const recipe = req.body;
 
         if (recipe.name != "" && recipe.ingredients.length > 0 && recipe.instructions.length > 0) {
-            var duplicate = data.recipes.filter(dataRecipe => recipe.name == dataRecipe.name);
+            let duplicate = data.recipes.filter(dataRecipe => recipe.name == dataRecipe.name);
             if (duplicate.length > 0) {
                 response = { error: "Recipe already exists" }
                 res.status(400)
@@ -18,7 +19,7 @@ module.exports = app => {
                 res.status(201)
             }
         } else {
-            response = { error: "Error in the request body" }
+            response = { error: "One or more fields are empty in request body" }
             res.status(406)
         }
         

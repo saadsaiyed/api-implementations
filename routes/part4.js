@@ -1,8 +1,9 @@
 const data = require("../data.json");
 const fs = require('fs')
+const sanitizeRequestBody = require('../middleware/sanitizeRequestBody')
 
 module.exports = app => {
-    app.put("/recipes", (req, res) => {
+    app.put("/recipes", sanitizeRequestBody, (req, res) => {
         let response = {};
         const recipe = req.body;
 
@@ -18,7 +19,7 @@ module.exports = app => {
                 res.status(404)
             }
         } else {
-            response = { error: "Error in the request body" }
+            response = { error: "One or more fields are empty in request body" }
             res.status(406)
         }
         
