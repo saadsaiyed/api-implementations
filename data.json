@@ -1,7 +1,11 @@
 {
     "recipes": [{
             "name": "scrambledEggs",
-            "ingredients": ["1 tsp oil", "2 eggs", "salt"],
+            "ingredients": [
+                "1 tsp oil",
+                "2 eggs",
+                "salt"
+            ],
             "instructions": [
                 "Beat eggs with salt",
                 "Heat oil in pan",
